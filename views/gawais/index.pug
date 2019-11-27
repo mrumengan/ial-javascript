@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    ul(class="gawai-list")
+        each val, index in gawais
+            li
+                a(href="/gawais/"+val._id) #{val.IMEI}
