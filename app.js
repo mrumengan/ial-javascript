@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var gawaisRouter = require('./routes/gawais');
+var locationsRouter = require('./routes/locations');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -22,7 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+app.use('/gawais/:imei', gawaisRouter.view);
 app.use('/gawais', gawaisRouter.list);
+
+app.use('/location', gawaisRouter.list);
 
 app.use('/users', usersRouter.list);
 
