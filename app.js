@@ -26,7 +26,7 @@ app.use('/', indexRouter);
 app.use('/gawais/:imei', gawaisRouter.view);
 app.use('/gawais', gawaisRouter.list);
 
-app.use('/locations/relocate', locationsRouter.relocate);
+app.use('/locations/view', locationsRouter.view);
 
 app.use('/users', usersRouter.list);
 

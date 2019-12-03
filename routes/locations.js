@@ -12,9 +12,17 @@ exports.view = function(req, res) {
     if (err) throw err
   
     var db = client.db(process.env.MONGODB_DB);
-    db.collection('gawai').findOne({IMEI: req.params['imei']}, {}, function (err, result) {
+    db.collection('gawai').find({
+      locations:
+        { $near:
+           {
+             $geometry: { type: "Point",  coordinates: [ 106.8247673, -6.175866 ] },
+             $minDistance: 1000,
+             $maxDistance: 5000
+           }
+        }
+    }).toArray(function (err, result) {
         if (err) throw err
-        console.log(req.params['imei']);
         console.log(result);
   
         res.render('gawais/view', { title: 'Gawai Detil', gawai: result });

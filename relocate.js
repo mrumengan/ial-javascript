@@ -18,12 +18,11 @@ function (err, client) {
     if (err) throw err
 
     counter++;
-    console.log(counter, gawai);
 
     if(gawai) {
 
         bulk.find({ "_id": gawai._id }).updateOne({
-            "$set": { "locations": {type: "Point", coordinates: [gawai.LAT, gawai.LON]} }
+            "$set": { "locations": {type: "Point", coordinates: [gawai.LON, gawai.LAT]} }
         });
 
         if (counter % 1000 == 0 ) {
@@ -39,7 +38,8 @@ function (err, client) {
             // do something with result
             // db.close();
         }); 
-    }
+        console.log(counter);
+      }
 
     // client.close();
   });
