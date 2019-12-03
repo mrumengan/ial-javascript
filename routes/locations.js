@@ -2,6 +2,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 var MongoClient = require('mongodb').MongoClient
+var MongoClient2 = require('mongodb').MongoClient
+var ObjectID = require('mongodb').ObjectID;
 
 exports.view = function(req, res) {
   MongoClient.connect('mongodb://'+process.env.MONGODB_HOST+':'+process.env.MONGODB_PORT,
