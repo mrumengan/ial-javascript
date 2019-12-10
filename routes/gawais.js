@@ -14,7 +14,8 @@ exports.list = function(req, res){
     db.collection('gawai').aggregate([
       { $group: { "_id": "$IMEI", "shown": { $sum: 1 } } },
       {$sort: {shown: -1}},
-      {$limit: 20}
+      {$limit: 20},
+      {allowDiskUse: true}
     ])
       .toArray(function (err, result) {
         if (err) throw err
