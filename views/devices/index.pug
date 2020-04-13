@@ -6,4 +6,8 @@ block content
     ul(class="gawai-list")
         each val, index in gawais
             li
-                a(href="/gawais/"+val._id) #{val.IMEI}
+                div(class="row")
+                    div(class="col imei")
+                        a(href="/gawais/"+val._id) #{val._id}
+                    div(class="col number")
+                        span #{val.shown}
