@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var gawaisRouter = require('./routes/gawais');
+var devicesRouter = require('./routes/devices');
 var usersRouter = require('./routes/users');
 
 var app = express();
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-app.use('/gawais', gawaisRouter.list);
+app.use('/devices', devicesRouter.list);
 
 app.use('/users', usersRouter.list);
 

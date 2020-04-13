@@ -1,6 +1,6 @@
-var MongoClient = require('mongodb').MongoClient
+import { MongoClient } from 'mongodb';
 
-exports.list = function(req, res){
+export function list(req, res){
 
   MongoClient.connect('mongodb://localhost:27017',
   {useUnifiedTopology: true, useNewUrlParser: true},
@@ -13,9 +13,9 @@ exports.list = function(req, res){
   
       console.log(result);
 
-      res.render('gawais/index', { title: 'Gawai List', gawais: result });
+      res.render('devices/index', { title: 'Device List', gawais: result });
     })
   });
   
 
-};
+}
